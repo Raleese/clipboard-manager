@@ -1,7 +1,7 @@
 import keyboard
 import threading
 
-def register_hold(on_hold, hold_time=2.0):
+def register_hold(on_hold, hold_time=0.5):
     hold_timer = None
     shortcut_fired = False
 
