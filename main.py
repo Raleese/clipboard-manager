@@ -3,7 +3,7 @@ from hotkeys import register_hold
 from clipboard import start_clipboard_watcher
 from database import Database
 
-db = Database('clipboard_history.db')  # Initialize the database
+db = Database('%LOCALAPPDATA%\\ClipboardManager\\clipboard_history.db')  # Initialize the database
 
 root = tk.Tk()
 root.title("Clipboard Manager")
@@ -32,5 +32,5 @@ def open_manager():
 
 
 register_hold(open_manager, 2)
-start_clipboard_watcher(root)
+start_clipboard_watcher(root, db=db)
 root.mainloop()
