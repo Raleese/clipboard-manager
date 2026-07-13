@@ -20,7 +20,7 @@ class Database:
         self.connection.commit()
 
     def fetch_all_items(self):
-        self.cursor.execute('SELECT * FROM clipboard_history')
+        self.cursor.execute('SELECT id, content FROM clipboard_history ORDER BY id DESC')
         return self.cursor.fetchall()
     
     def delete_oldest_item(self):
