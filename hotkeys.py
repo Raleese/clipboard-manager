@@ -18,6 +18,8 @@ def register_hold(on_hold, hold_time=2.0):
         hold_timer = None
 
         if keyboard.is_pressed('ctrl') and keyboard.is_pressed('shift'):
+            nonlocal shortcut_fired
+            shortcut_fired = True
             on_hold()
 
     def cancel_timer():
