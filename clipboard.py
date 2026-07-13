@@ -1,7 +1,7 @@
 import pyperclip
 from database import Database
 
-def start_clipboard_watcher(root, interval_ms=250, db=None):
+def start_clipboard_watcher(root, interval_ms=250, db=None, item_limit=5):
     previous_text = pyperclip.paste()
 
     def watch_clipboard():
@@ -15,7 +15,7 @@ def start_clipboard_watcher(root, interval_ms=250, db=None):
         root.after(interval_ms, watch_clipboard)
 
     def save_text(text):
-        if db.get_count() >= 5:
+        if db.get_count() >= item_limit:
             # Delete the oldest item
             db.delete_oldest_item()
         db.insert_item(text)
