@@ -2,8 +2,13 @@ import tkinter as tk
 from hotkeys import register_hold
 from clipboard import start_clipboard_watcher
 from database import Database
+import os
+from pathlib import Path
 
-db = Database('%LOCALAPPDATA%\\ClipboardManager\\clipboard_history.db')  # Initialize the database
+app_data_folder = Path(os.environ["LOCALAPPDATA"]) / "ClipboardManager"
+app_data_folder.mkdir(parents=True, exist_ok=True)
+
+db = Database(app_data_folder / "clipboard_history.db")
 
 root = tk.Tk()
 root.title("Clipboard Manager")
