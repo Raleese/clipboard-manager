@@ -30,3 +30,6 @@ class Database:
     def get_count(self):
         self.cursor.execute('SELECT COUNT(*) FROM clipboard_history')
         return self.cursor.fetchone()[0]
+
+    def close(self):
+        self.connection.close()
