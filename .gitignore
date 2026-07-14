@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 clipboard_history.db
 settings.json
+build/
+dist/
+*.spec
